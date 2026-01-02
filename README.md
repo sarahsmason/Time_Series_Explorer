@@ -59,5 +59,5 @@ DEFAULT_CSV = os.path.join(os.path.dirname(__file__), "RetailSalesHealthPersonal
 - Chart formatting is handled via Plotly `update_yaxes(tickformat="$,.2f")` and `update_traces(hovertemplate=...)` in the file.
 
 ## License
-This is a small utility script for personal use. Feel free to adapt.
+This is a utility script for time series analysis. Feel free to adapt.
 
