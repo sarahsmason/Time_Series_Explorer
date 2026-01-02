@@ -37,7 +37,7 @@ Then open http://localhost:8501 in your browser. If Streamlit prompts for an onb
 DEFAULT_CSV = "RetailSalesHealthPersonalCare.csv"
 ```
 
-Source for csv is : U.S. Census Bureau, Retail Sales: Health and Personal Care Stores [MRTSMPCSM446USN], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MRTSMPCSM446USN, December 25, 2025.
+Source for csv is : U.S. Census Bureau, Advance Retail Sales: Health and Personal Care Stores [RSHPCSN], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/RSHPCSN, January 1, 2026.
 
 To use the CSV shipped in this workspace, either upload it in the UI or change that line to a relative path such as:
 
