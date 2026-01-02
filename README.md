@@ -61,12 +61,3 @@ DEFAULT_CSV = os.path.join(os.path.dirname(__file__), "RetailSalesHealthPersonal
 ## License
 This is a small utility script for personal use. Feel free to adapt.
 
----
-
-## Screenshot
-
-Below is a sample chart / data citation image from the dataset used by the app:
-
-![Time Series Explorer screenshot](assets/ScreenshotTimeSeriesExplorer.png)
-
-
