@@ -1,6 +1,6 @@
 # TimeSeriesExplorer.py
 
-A small Streamlit app that loads a time-series CSV and displays an interactive, date-aggregated chart with simple KPIs.
+A Streamlit app that loads a time-series CSV and displays an interactive, date-aggregated chart with simple KPIs.
 
 ## Features 
 - Upload a CSV or use the default CSV file path.
