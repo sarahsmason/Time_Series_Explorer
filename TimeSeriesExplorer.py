@@ -3,7 +3,7 @@
 # Allows users to upload a CSV, select date and value columns,
 # choose date ranges and aggregation granularity, and view KPIs and charts.
 # Author: Sarah Mason
-# Date: 2025-12-28
+# Date: 2026-01-03
 
 import streamlit as st
 import pandas as pd
@@ -16,15 +16,22 @@ st.title("Interactive Time Series Explorer")
 
 # Upload CSV
 # Allow upload or fallback to the default CSV path
-DEFAULT_CSV = os.path.join(os.path.dirname(__file__), "RetailSalesHealthPersonalCare.csv")
+DEFAULT_CSV_CANDIDATES = [
+    os.path.join(os.path.dirname(__file__), "RetailSalesHealthPersonalCare.csv"),
+    os.path.join(os.path.expanduser("~"), "Downloads", "RetailSalesHealthPersonalCare.csv"),
+    os.path.join(os.getcwd(), "RetailSalesHealthPersonalCare.csv"),
+]
+DEFAULT_CSV = next((p for p in DEFAULT_CSV_CANDIDATES if p and os.path.exists(p)), None)
+
 uploaded = st.file_uploader("Upload CSV (or leave empty to use default)", type=["csv"])
 if uploaded is None:
-    if os.path.exists(DEFAULT_CSV):
+    if DEFAULT_CSV:
         st.info(f"No upload provided — using default file: {DEFAULT_CSV}")
         df = pd.read_csv(DEFAULT_CSV)
     else:
-        st.info("Upload a CSV with a date column and a numeric value column.")
-        st.stop()
+        st.error("No CSV provided and no default file found. Upload a CSV or place 'RetailSalesHealthPersonalCare.csv' next to this script.")
+        # When run directly with `python` the Streamlit runtime may not stop execution; exit explicitly
+        raise SystemExit(1)
 else:
     df = pd.read_csv(uploaded)
 
@@ -137,3 +144,4 @@ with left_col:
 # Optionally show table
 if st.checkbox("Show filtered table"):
     st.dataframe(filtered.sort_values(date_col))
+
